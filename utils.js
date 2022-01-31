@@ -1,4 +1,4 @@
-const moonPhases = [
+export const moonPhases = [
   {
     id: 1,
     title: "Luna nueva",
@@ -41,7 +41,7 @@ const moonPhases = [
   },
 ];
 
-const candlesTypes = [
+export const candlesTypes = [
   {
     id: +new Date(),
     color: "White",

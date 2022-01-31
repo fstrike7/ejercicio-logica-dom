@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <main class="flex justify-center h-screen">
+    <main class="flex-col justify-center h-screen">
+      <span id="barra-busqueda" class="flex justify-center"></span>
       <section class="grid place-content-center">
-        <h1 class="text-2xl">Fases lunares</h1>
-        <div class="columns-4">
+        <h1 class="text-2xl m-2">Fases lunares</h1>
+        <div id="contenedor" class="columns-4">
           <article>
             <img src="" alt="" />
             <p class="text-lg"></p>
