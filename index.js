@@ -1,5 +1,12 @@
 import {moonPhases, candlesTypes} from "./utils.js"
 
+const ESTILOS = {
+    carta: "max-w-sm rounded overflow-hidden shadow-lg m-4",
+    imagen: "w-full",
+    titulo: "font-bold text-xl subpixel-antialiased my-2 ml-2",
+    descripcion: "italic my-2 mx-1"
+}
+
 const generarLunas = (ordenar) => {
     // 
     crearBuscador()
@@ -14,8 +21,12 @@ const generarLunas = (ordenar) => {
         img.src = elem.img
         img.alt = elem.title
         p.textContent = elem.title
-        p.className = "text-lg"
         el.id = elem.id
+        
+        // Estilizar
+        p.className = ESTILOS.titulo
+        img.className = ESTILOS.imagen
+        el.className = ESTILOS.carta
 
         // Agregarlos al article
         el.appendChild(img)
@@ -42,6 +53,11 @@ const generarVelas = (ordenar) => {
         description.textContent = elem.description
         el.id = elem.id
 
+        // Estilizar
+        color.className = ESTILOS.titulo
+        description.className = ESTILOS.descripcion
+        el.className = ESTILOS.carta
+
         // Agregarlos al article
         el.appendChild(color)
         el.appendChild(description)
@@ -66,6 +82,9 @@ const generarDeseos = () => {
 
     contenedor_input.id = "agregar-deseo"
     btn_enviar.innerText = "Agregar"
+
+    //Estilizar
+    contenedor_input.className = "col-span-4 flex justify-center"
     btn_enviar.className = "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 
     btn_enviar.onclick = () => {
@@ -75,17 +94,14 @@ const generarDeseos = () => {
         // Crear elementos
         const lista_deseos = document.getElementById("contenedor")
         const deseo = document.createElement("article")
-        const div = document.createElement("div")
         const txt_deseo = document.createElement("p")
 
         // Estilizar 
-        div.className = "px-6 py-4"
-        txt_deseo.className = "text-gray-700 text-xl"
-        deseo.className = "max-w-sm rounded overflow-hidden shadow-lg"
+        txt_deseo.className = ESTILOS.descripcion
+        deseo.className = ESTILOS.carta
         
         txt_deseo.innerText = mensaje
-        div.appendChild(txt_deseo)
-        deseo.appendChild(div)
+        deseo.appendChild(txt_deseo)
         lista_deseos.appendChild(deseo)
     }
 
@@ -109,6 +125,7 @@ const cargarElementos = (elementos, titulo) => {
 
     // Agregarlos al div contenedor
     const contenedor = document.getElementById("contenedor")
+    contenedor.className="columns-4"
     contenedor.innerHTML = '' // Para borrar los elementos dentro del div, no sé si es la mejor forma
     contenedor.append(...elementos)
 }
